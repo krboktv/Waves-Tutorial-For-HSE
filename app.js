@@ -56,7 +56,7 @@ bot.dialog('createNewWavesAccount', [
             serviceUrl: 'https://telegram.botframework.com'
         };
 
-        Server.server.get('/api/messages', (req, res, next) => {
+        server.get('/api/messages', (req, res, next) => {
             sendProactiveMessage(savedAddress);
             console.log("---");
             console.log(savedAddress);
@@ -64,8 +64,7 @@ bot.dialog('createNewWavesAccount', [
             res.send('triggered');
             next();
         });
-        Server.server.post('/api/messages', Server.connector.listen());
-        // Уведомление о переводе адресату
+        server.post('/api/messages', Server.connector.listen());
 
         setTimeout(() => {
             var msg = new builder.Message().address(savedAddress);
