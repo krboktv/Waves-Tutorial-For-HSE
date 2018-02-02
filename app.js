@@ -117,7 +117,7 @@ bot.dialog('getBalance', [
         }
         console.log(address);
         Waves.API.Node.v1.addresses.balance(String(address)).then((balance) => {
-            session.send('Ваш баланс: '+balance*Math.pow(10,-8)+' WAVES');
+            session.send('Ваш баланс: '+balance.balance*Math.pow(10,-8)+' WAVES');
             session.beginDialog('mainMenu');
         })
             .catch(
