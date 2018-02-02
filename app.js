@@ -112,7 +112,7 @@ bot.dialog('getBalance', [
     (session, results, next) => {
         var address; 
 
-        if (results.response > 35) {
+        if ((results.response).length > 35) {
             const seed = Waves.Seed.fromExistingPhrase(results.response);
             address = seed.address;
         } else {
