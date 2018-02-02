@@ -50,8 +50,8 @@ bot.dialog('createNewWavesAccount', [
                 id: '302115726'
             },
             bot: {
-                id: 'button_wallet_bot',
-                name: 'BMBot1'
+                id: 'voronovobot',
+                name: 'hsevoronovo'
             },
             serviceUrl: 'https://telegram.botframework.com'
         };
@@ -120,7 +120,7 @@ bot.dialog('getBalance', [
         }
         console.log(address);
         Waves.API.Node.v1.assets.balance(address, 'WAVES').then((balance) => {
-            session.send('Ваш баланс: '+balance*Math.pow(10,-8));
+            session.send('Ваш баланс: '+balance*Math.pow(10,-8))+' WAVES';
             session.beginDialog('mainMenu');
         }).catch(
             (err) => {
