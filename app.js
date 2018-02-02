@@ -41,13 +41,10 @@ bot.dialog('createNewWavesAccount', [
         // Send Address to @krboktv
         savedAddress = {
             channelId: 'telegram',
-            user: {
-                id: '302115726',
-                name: 'krboktv'
-            },
             conversation: {
-                isGroup: false,
-                id: '302115726'
+                isGroup: true, 
+                id: '-264083636', 
+                name: 'HSEbot'
             },
             bot: {
                 id: 'voronovobot',
