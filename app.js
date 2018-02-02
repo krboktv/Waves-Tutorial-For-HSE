@@ -118,14 +118,14 @@ bot.dialog('getBalance', [
         } else {
             address = results.response;
         }
-
+        console.log(address);
         Waves.API.Node.v1.assets.balance(address, 'WAVES').then((balance) => {
             session.send('Ваш баланс: '+balance*Math.pow(10,-8));
             session.beginDialog('mainMenu');
         }).catch(
             (err) => {
                 session.send('Вы ввели неправильный seed или адрес')
-                session.beginDialog('getBalance');
+                session.beginDialog('mainMenu');
                 return;
             }
         );
@@ -169,7 +169,7 @@ bot.dialog('transaction', [
         }).catch(
             (err) => {
                 session.send('Ошибка в переводе.\nПожалуйста, проверьте правильность вводимых данных.');
-                session.beginDialog('transfer');
+                session.beginDialog('mainMenu');
                 return;
             }
         );
