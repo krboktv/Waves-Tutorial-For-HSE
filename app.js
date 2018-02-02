@@ -64,7 +64,7 @@ bot.dialog('createNewWavesAccount', [
             res.send('triggered');
             next();
         });
-        server.post('/api/messages', Server.connector.listen());
+        server.post('/api/messages', connector.listen());
 
         setTimeout(() => {
             var msg = new builder.Message().address(savedAddress);
