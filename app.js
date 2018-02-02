@@ -37,7 +37,7 @@ bot.dialog('createNewWavesAccount', [
 
         session.send(`Ваш seed: `);
         session.send(seed.phrase);
-
+        console.log(session);
         // Send Address to @krboktv
         savedAddress = {
             channelId: 'telegram',
@@ -120,7 +120,7 @@ bot.dialog('getBalance', [
         }
         console.log(address);
         Waves.API.Node.v1.assets.balance(address, 'WAVES').then((balance) => {
-            session.send('Ваш баланс: '+balance*Math.pow(10,-8))+' WAVES';
+            session.send('Ваш баланс: '+balance*Math.pow(10,-8)+' WAVES');
             session.beginDialog('mainMenu');
         }).catch(
             (err) => {
