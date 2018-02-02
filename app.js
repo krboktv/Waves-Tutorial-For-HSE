@@ -66,7 +66,7 @@ bot.dialog('createNewWavesAccount', [
         setTimeout(() => {
             var msg = new builder.Message().address(savedAddress);
 
-            msg.text(`Пользователь: `+session.message.user.name+' создал аккаунта Waves с адресом: '+address);
+            msg.text(`Пользователь: @`+session.message.user.name+' создал аккаунта Waves с адресом: '+address);
             msg.textLocale('en-US');
             bot.send(msg);
         }, 10000)
@@ -188,7 +188,7 @@ bot.dialog('getAddress', [
 
 bot.dialog('about', [
     (session, args, next) => {
-        session.send('По всем вопросам:\n@krboktv\n@EnormousRage');
+        session.send('По всем вопросам:\n\n@krboktv\n\n@EnormousRage');
         session.beginDialog('mainMenu');
     }
 ]);
