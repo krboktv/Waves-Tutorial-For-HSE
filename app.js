@@ -37,7 +37,7 @@ bot.dialog('createNewWavesAccount', [
 
         session.send(`Ваш seed: `);
         session.send(seed.phrase);
-        console.log(session);
+
         // Send Address to @krboktv
         savedAddress = {
             channelId: 'telegram',
@@ -51,7 +51,7 @@ bot.dialog('createNewWavesAccount', [
             },
             bot: {
                 id: 'voronovobot',
-                name: 'hsevoronovo'
+                name: 'HSEVoronovo'
             },
             serviceUrl: 'https://telegram.botframework.com'
         };
@@ -119,10 +119,11 @@ bot.dialog('getBalance', [
             address = results.response;
         }
         console.log(address);
-        Waves.API.Node.v1.assets.balance(address, 'WAVES').then((balance) => {
+        Waves.API.Node.v1.addresses.balance(String(address)).then((balance) => {
             session.send('Ваш баланс: '+balance*Math.pow(10,-8)+' WAVES');
             session.beginDialog('mainMenu');
-        }).catch(
+        })
+            .catch(
             (err) => {
                 session.send('Вы ввели неправильный seed или адрес')
                 session.beginDialog('mainMenu');
