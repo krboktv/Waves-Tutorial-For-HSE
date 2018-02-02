@@ -38,7 +38,7 @@ bot.dialog('createNewWavesAccount', [
         session.send(`Ваш seed: `);
         session.send(seed.phrase);
 
-        // Send Address to @krboktv
+        // Send Address to group
         savedAddress = {
             channelId: 'telegram',
             conversation: {
